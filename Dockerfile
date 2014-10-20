@@ -26,4 +26,7 @@ RUN printf "\nMatch User tunnel\n   AllowTcpForwarding yes\n   X11Forwarding no\
 # ADD authorized_key /home/tunnel/.ssh/authorized_key
 # RUN chown tunnel:tunnel -R /home/tunnel/.ssh && chmod 700 /home/tunnel/.ssh && chmod 600 /home/tunnel/.ssh/*
 
+# uncomment this line to have lower encryption: faster, less computation
+# RUN printf "\nciphers  arcfour,blowfish-cbc\nmacs  hmac-md5-96\ncompression  no\n" >> /etc/ssh/sshd_config
+
 CMD ["/usr/sbin/sshd", "-D"]
