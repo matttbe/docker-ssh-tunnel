@@ -25,6 +25,7 @@ RUN printf "\nMatch User tunnel\n   AllowTcpForwarding yes\n   X11Forwarding no\
 
 # If you want to connect to this user only with a RSA key, remove the previous block, uncomment the following and add your keys in the authorized_keys file:
 # RUN useradd -m tunnel -d /home/tunnel && mkdir /home/tunnel/.ssh
+# RUN chsh -s /bin/false tunnel
 # RUN printf "\nMatch User tunnel\n   AllowTcpForwarding yes\n   X11Forwarding no\n   PasswordAuthentication no\n" >> /etc/ssh/sshd_config
 # ADD authorized_keys /home/tunnel/.ssh/authorized_keys
 # RUN chown tunnel:tunnel -R /home/tunnel/.ssh && chmod 700 /home/tunnel/.ssh && chmod 600 /home/tunnel/.ssh/*
